@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.udacity.sandwichclub.DetailActivity">
 
     <ImageView
@@ -13,47 +14,62 @@
         android:contentDescription="@string/sandwich_picture_content_description"
         android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/origin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_also_known_as_label"
-        android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_ingredients_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/label_tv"
+                android:text="@string/detail_place_of_origin_label" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_place_of_origin_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/origin_tv"
+                style="@style/base_tv"
+                android:layout_toEndOf="@id/textView2" />
 
-    <TextView
-        android:id="@+id/description_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/label_tv"
+                android:layout_below="@id/origin_tv"
+                android:text="@string/detail_also_known_as_label" />
 
-    <TextView
-        android:id="@+id/ingredients_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/also_known_tv"
+                style="@style/base_tv"
+                android:layout_alignStart="@id/origin_tv"
+                android:layout_below="@id/origin_tv"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@id/textView3" />
 
-    <TextView
-        android:id="@+id/also_known_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/label_tv"
+                android:layout_below="@id/also_known_tv"
+                android:text="@string/detail_ingredients_label" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_description_label"
-        android:textStyle="bold" />
-</FrameLayout>
+            <TextView
+                android:id="@+id/ingredients_tv"
+                style="@style/base_tv"
+                android:layout_below="@id/textView4"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/label_tv"
+                android:layout_below="@id/ingredients_tv"
+                android:text="@string/detail_description_label" />
+
+            <TextView
+                android:id="@+id/description_tv"
+                style="@style/base_tv"
+                android:layout_below="@id/textView" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
